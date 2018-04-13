@@ -268,17 +268,17 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnT
 
     //不可取消的dialog
     protected void showWaitingDialog(String tip) {
-        showWaitDialog(tip, false);
+        showWaitingDialog(tip, false);
     }
 
     protected void showWaitingDialog(int tipId) {
-        showWaitDialog(getResStr(tipId), false);
+        showWaitingDialog(getResStr(tipId), false);
     }
 
     /**
      * 显示等待提示框
      */
-    protected void showWaitDialog(String tip, boolean needCancelable) {
+    protected void showWaitingDialog(String tip, boolean needCancelable) {
         if (mDialogWaiting == null) {
             mDialogWaiting = new CustomCircleDialog(this, R.style.CustomCircleDialog);
         }
@@ -295,7 +295,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnT
     /**
      * 隐藏等待提示框
      */
-    protected void hideWaitDialog() {
+    protected void hideWaitingDialog() {
         if (mDialogWaiting != null && mDialogWaiting.isShowing()) {
             mDialogWaiting.dismiss();
         }
