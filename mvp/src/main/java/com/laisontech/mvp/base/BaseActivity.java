@@ -267,11 +267,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnT
     }
 
     //不可取消的dialog
-    protected void showWaitDialog(String tip) {
+    protected void showWaitingDialog(String tip) {
         showWaitDialog(tip, false);
     }
 
-    protected void showWaitDialog(int tipId) {
+    protected void showWaitingDialog(int tipId) {
         showWaitDialog(getResStr(tipId), false);
     }
 
