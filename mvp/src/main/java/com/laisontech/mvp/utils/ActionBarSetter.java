@@ -41,6 +41,16 @@ public class ActionBarSetter {
         return viewList;
     }
 
+    //设置其他布局下的actionBar
+    public static ActionBarView setMiddleActionBar(AppCompatActivity activity) {
+        View view = LayoutInflater.from(activity).inflate(R.layout.layout_text_actionbar, null);
+        TextView tv = (TextView) view.findViewById(R.id.tv_title);
+        //初始化ActionBarView
+        ActionBarView viewList = new ActionBarView();
+        viewList.tv = tv;
+        setParams(activity, view);
+        return viewList;
+    }
 
     private static void setParams(AppCompatActivity activity, View view) {
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT,

@@ -228,7 +228,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnT
         });
         setTvRes(obj, actionBarView);
     }
-
+    protected void setMiddleActionBar(final AppCompatActivity activity, Object obj) {
+        ActionBarSetter.ActionBarView actionBarView = ActionBarSetter.setMiddleActionBar(activity);
+        setTvRes(obj, actionBarView);
+    }
 
     //关闭文本输入框
     private void closeInputWindow() {
