@@ -14,28 +14,28 @@ import java.lang.reflect.ParameterizedType;
  * 基类
  */
 
-public abstract class MVPBaseActivity<V extends BaseView,T extends BasePresenterImpl<V>> extends BaseActivity implements BaseView{
+public abstract class MVPBaseActivity<V extends BaseView, T extends BasePresenterImpl<V>> extends BaseActivity implements BaseView {
     public T mPresenter;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mPresenter= getInstance(this,1);
+    protected void initData(Bundle savedInstanceState) {
+        mPresenter = getInstance(this, 1);
         mPresenter.attachView((V) this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPresenter!=null)
-        mPresenter.detachView();
+        if (mPresenter != null)
+            mPresenter.detachView();
     }
 
     @Override
-    public Context getContext(){
+    public Context getContext() {
         return this;
     }
 
-    public  <T> T getInstance(Object o, int i) {
+    public <T> T getInstance(Object o, int i) {
         try {
             return ((Class<T>) ((ParameterizedType) (o.getClass()
                     .getGenericSuperclass())).getActualTypeArguments()[i])
