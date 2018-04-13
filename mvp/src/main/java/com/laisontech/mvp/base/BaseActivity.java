@@ -233,6 +233,15 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnT
         setTvRes(obj, actionBarView);
     }
 
+
+    //设置自定义的actionBar,子类只需要复写此方法即可
+    //增加按钮事件
+    protected void setCustomActionBar(final AppCompatActivity activity, Object obj, View.OnClickListener onClickListener) {
+        ActionBarSetter.ActionBarView actionBarView = ActionBarSetter.setCustomActionBar(activity);
+        actionBarView.ll.setOnClickListener(onClickListener);
+        setTvRes(obj, actionBarView);
+    }
+
     //关闭文本输入框
     private void closeInputWindow() {
         View view = this.getWindow().peekDecorView();
