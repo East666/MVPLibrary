@@ -76,6 +76,7 @@ import okhttp3.MediaType;
      * Post 请求 String
      */
      void buildPostString(final String url, final String tag, final LinkedHashMap<String, String> map, final OnConnectResultListener listener) {
+         mConnectListener = listener;
         postString(url, tag, map, new OnRetryListener() {
             @Override
             public void onRetry() {
@@ -92,6 +93,7 @@ import okhttp3.MediaType;
      * post 请求Json
      */
      void buildPostJson(final String url, final String tag, final Object objJson, final OnConnectResultListener listener) {
+         mConnectListener = listener;
         postJson(url, tag, objJson, new OnRetryListener() {
             @Override
             public void onRetry() {
@@ -109,6 +111,7 @@ import okhttp3.MediaType;
      * Post File
      */
      void buildPostFile(final String url, final String tag, final File file, final OnConnectResultListener listener) {
+         mConnectListener = listener;
         postFile(url, tag, file, new OnRetryListener() {
             @Override
             public void onRetry() {
