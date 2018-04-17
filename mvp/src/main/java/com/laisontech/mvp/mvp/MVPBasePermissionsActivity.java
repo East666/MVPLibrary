@@ -18,8 +18,7 @@ public abstract class MVPBasePermissionsActivity<V extends BaseView, T extends B
     public T mPresenter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initData(Bundle savedInstanceState) {
         mPresenter = getInstance(this, 1);
         mPresenter.attachView((V) this);
     }
