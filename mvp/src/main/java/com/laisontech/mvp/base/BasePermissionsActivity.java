@@ -31,12 +31,12 @@ public abstract class BasePermissionsActivity extends BaseActivity implements
     /**
      * 判断是否需要检测，防止不停的弹框
      */
-    private boolean isNeedCheck = true;
+    protected boolean isNeedCheckPermission = true;
 
     @Override
     protected void onResume() {
         super.onResume();
-        if (isNeedCheck) {
+        if (isNeedCheckPermission) {
             checkPermissions(needPermissions);
         }
     }
@@ -86,7 +86,7 @@ public abstract class BasePermissionsActivity extends BaseActivity implements
         if (requestCode == PERMISSON_REQUESTCODE) {
             if (!verifyPermissions(paramArrayOfInt)) {
                 showMissingPermissionDialog();
-                isNeedCheck = false;
+                isNeedCheckPermission = false;
             }
         }
     }
